@@ -1,0 +1,92 @@
+<!--
+HardToAccess
+Developed by Tony West (@un4gi)
+github.com/un4gi | hackerone.com/un4gi | twitter.com/un4gii
+
+For Penetration Testing/Red Teaming Purposes Only.
+Do not use without permission of the system owner.
+-->
+
+<head>
+    <title>HardToAccess</title>
+    <HTA: APPLICATION
+          APPLICATIONNAME="HardToAccess"
+          SCROLL="yes"
+          SINGLEINSTANCE="yes"
+    >
+<style type="text/css">
+body{background:#008080;font-size:12pt;font-family:'MS Sans Serif','Courier','Courier New';font-weight:500;line-height:10pt;padding:5pt;text-align:center}
+button{border-radius:5pt;font-size:12pt;width:180px;background:#b4b4b4;padding:10px 0;border-style:hidden;text-transform:capitalize}
+input{text-align:center}
+.o{padding-left:4px;word-wrap:break-word;width:750px}
+footer{font-size:5pt;position:absolute;bottom:0px;width:98%;text-align:center}
+</style>
+</head>
+
+<SCRIPT LANGUAGE="VBScript">
+    Sub RuP
+        Set Sh = CreateObject("Wscript.Shell")
+        Sh.Run "powershell.exe"
+    End Sub
+
+    Sub RuC
+        Set Sh = CreateObject("Wscript.Shell")
+        Sh.Run "C:\\Windows\\system32\\cmd.exe"
+    End Sub
+</SCRIPT>
+
+<SCRIPT LANGUAGE="javascript">
+
+    function cl() {
+        a = new ActiveXObject("Scripting.FileSystemObject");
+        f = window.location.href;
+        f = decodeURI(f).slice(8);
+        var c = confirm("Are you sure you want to delete the file?");
+        if (c == true) {
+            h = a.GetFile(f);
+            h.Delete();
+            window.close();
+        }
+    }
+
+    function ur() {
+        var u = document.getElementById("u").value;
+        window.open(u);
+    }
+
+</SCRIPT>
+
+<body>
+        <h1><p>HardToAccess</p></h1>
+        <p>Enter a URL below to browse to a website:</p>
+        <table>
+            <tr></tr>
+            <tr>
+                <td><input type="text" name="u" id="u" size="55"></td>
+                <td><button style="padding:3px 0" onclick='ur()'>Submit</button></td>
+            </tr>
+        </table>
+        <h2>Standalone Tasks:</h2>
+        <table>
+            <tr>
+                <td><button onclick=RuP>Spawn PowerShell</button></td>
+                <td><button onclick=RuC>Spawn Cmd.exe</button></td>
+                <td><button onclick='cl()'>Self Destruct</button></td>
+            </tr>
+        </table>
+        <p><h2>Placeholder for Custom Functions</h2></p>
+        <table>
+            <tr>
+                <td><button onclick='alert("Replace Me")'>Placeholder</button></td>
+                <td><button onclick='alert("Replace Me")'>Placeholder</button></td>
+                <td><button onclick='alert("Replace Me")'>Placeholder</button></td>
+            </tr>
+        </table>
+        <h2>Placeholder for Command Output:</h2>
+        <table>
+            <tr>
+                <td class="o" id="o"></td>
+            </tr>
+        </table>
+</body>
+<footer><p>@un4gi - Version 1.0</p></footer>
